@@ -1,0 +1,38 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'start' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/vagrant/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose caching /vagrant/bloc-jams/package.json
+verbose loadDefaults bloc-rdio-skeleton@0.0.1
+verbose run-script [ 'prestart', 'start', 'poststart' ]
+info prestart bloc-rdio-skeleton@0.0.1
+info start bloc-rdio-skeleton@0.0.1
+verbose unsafe-perm in lifecycle true
+silly exec sh "-c" "brunch watch --server"
+silly spawning [ 'sh', [ '-c', 'brunch watch --server' ], '/vagrant/bloc-jams' ]
+info bloc-rdio-skeleton@0.0.1 Failed to exec start script
+ERR! bloc-rdio-skeleton@0.0.1 start: `brunch watch --server`
+ERR! `sh "-c" "brunch watch --server"` failed with 127
+ERR! 
+ERR! Failed at the bloc-rdio-skeleton@0.0.1 start script.
+ERR! This is most likely a problem with the bloc-rdio-skeleton package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     brunch watch --server
+ERR! You can get their info via:
+ERR!     npm owner ls bloc-rdio-skeleton
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Linux 3.2.0-23-generic-pae
+ERR! command "node" "/usr/bin/npm" "start"
+ERR! cwd /vagrant/bloc-jams
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! code ELIFECYCLE
+ERR! message bloc-rdio-skeleton@0.0.1 start: `brunch watch --server`
+ERR! message `sh "-c" "brunch watch --server"` failed with 127
+ERR! errno {}
+verbose exit [ 1, true ]
