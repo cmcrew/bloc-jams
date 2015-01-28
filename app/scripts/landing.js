@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  $('h1').click(function() {
+    $(this).fadeOut('slow');
+  });
+
   $('.hero-content h3').click(function(){
     var subText = $(this).text();
     $(this).text(subText + "!");
@@ -15,4 +19,14 @@ $(document).ready(function() {
   };
 
   $('.selling-points .point').hover(onHoverAction, offHoverAction);
+  $('.selling-points .point').click(function() {
+    $(this).children('p').css('font-size', '24px');
+  });
+
+  $('.hero-content h3').hover(function() {
+    $(this).css("color", "red");
+  }, function() {
+    $(this).css("color", "white");
+  });
+
 });
