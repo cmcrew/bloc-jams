@@ -20,7 +20,6 @@ var buildAlbumThumbnail = function() {
 };
 
 var numberOfAlbums = Math.floor(Math.random() * 75)+25;
-console.log(numberOfAlbums);
 
 var updateCollectionView = function() {
   var $collection = $('.collection-container .row');
