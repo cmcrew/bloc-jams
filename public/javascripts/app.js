@@ -121,8 +121,7 @@ var albumMarconi = {
   ]
 }
 
-var changeAlbumView = function() {
-  var album = albumPicasso;
+var changeAlbumView = function(album) {
 
   var $albumTitle = $('.album-title');
   $albumTitle.text(album.name);
@@ -159,6 +158,10 @@ if (document.URL.match(/\/album.html/)) {
   
   $(document).ready(function() {
     changeAlbumView(albumPicasso);
+    $('.album-container').click(function() {
+      changeAlbumView(albumMarconi);
+    });
+
   });
 }
 
