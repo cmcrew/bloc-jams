@@ -177,7 +177,9 @@ require("./album");
 var buildAlbumThumbnail = function() {
   var template = 
     '<div class="collection-album-container col-md-2">'
-    +   '<img src="/images/album-placeholder.png"/>'
+    + '  <div class="collection-album-image-container">'
+    + '    <img src="/images/album-placeholder.png"/>'
+    + '  </div>'
     +   '<div class="collection-album-info caption">'
     +     '<p>'
     +       '<a href="/album.html" class="album-name">The Colors</a>'
@@ -191,10 +193,27 @@ var buildAlbumThumbnail = function() {
     +     '</p>'
     +   '</div>'
     + '</div>'
+    ;
 
   return $(template);
 };
 
+var buildAlbumOverlay = function(albumURL) {
+  var template = 
+    '<div class="collection-album-image-overlay">'
+    + '<div class="collection-overlay-content">'
+    + '    <a class="collection-overlay-button" href="' + albumURL + '">'
+    + '      <i class="fa fa-play"></i>'
+    + '    </a>'
+    + '    &nbsp;'
+    + '    <a class="collection-overlay-button">'
+    + '      <i class="fa fa-plus"></i>'
+    + '    </a>'
+    + '  </div>'
+    + '</div>'
+    ;
+    return $(template);
+}
 var numberOfAlbums = Math.floor(Math.random() * 75)+25;
 
 var updateCollectionView = function() {
@@ -205,6 +224,16 @@ var updateCollectionView = function() {
     var $newThumbnail = buildAlbumThumbnail();
     $collection.append($newThumbnail);
   }
+
+  var onHover = function(e) {
+    $(this).append(buildAlbumOverlay("/album.html"));
+  };
+
+  var offHover = function(e) {
+    $(this).find('.collection-album-image-overlay').remove();
+  };
+
+  $collection.find('.collection-album-image-container').hover(onHover, offHover);
 }
 
 if (document.URL.match(/\/collection.html/)) {
