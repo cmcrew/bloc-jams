@@ -182,13 +182,13 @@ table.album-song-listing td {
     padding-left: 5px;
   }
 
-  td {
-    vertical-align: middle;
-    &.song-number {
-      padding: 0;
-      height: 70px;
-      text-align: center;
-    }
-  }
+}
+.album-song-listing td {
+  vertical-align: middle;
+}
+td.song-number {
+  padding: 0;
+  height: 70px;
+  text-align: center;
 }
 

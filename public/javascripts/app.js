@@ -104,7 +104,7 @@ var albumPicasso = {
     { name: 'Pink', length: '3:21'},
     { name: 'Magenta', length: '2:15'}
   ]
-}
+};
 
 var albumMarconi = {
   name: 'The Telephone',
@@ -119,7 +119,7 @@ var albumMarconi = {
     { name: 'Can you hear me now?', length: '3:14' },
     { name: 'Wrong phone number', length: '2:15'}
   ]
-}
+};
 
 var changeAlbumView = function(album) {
 
@@ -140,7 +140,8 @@ var changeAlbumView = function(album) {
     var $newRow = createSongRow(i + 1, songData.name, songData.length);
     $songList.append($newRow);
   }
-}
+};
+
 var currentlyPlayingSong = null;
 
 var createSongRow = function(songNumber, songName, songLength) {
@@ -183,7 +184,7 @@ var createSongRow = function(songNumber, songName, songLength) {
       // a play icon will be showing because of hover.
       // switch from Play -> Pause to indicate the new song is now playing
       // set the current song to the one clicked
-      $(this).html('<a class="album-song-buttom"><i class="fa fa-pause"></i></a>');
+      $(this).html('<a class="album-song-button"><i class="fa fa-pause"></i></a>');
       currentlyPlayingSong = songNumber;
     }
 
@@ -206,9 +207,9 @@ if (document.URL.match(/\/album.html/)) {
   
   $(document).ready(function() {
     changeAlbumView(albumPicasso);
-    $('.album-container').click(function() {
-      changeAlbumView(albumMarconi);
-    });
+    // $('.album-container').click(function() {
+    //   changeAlbumView(albumMarconi);
+    // });
 
   });
 }
