@@ -48,18 +48,66 @@ var changeAlbumView = function(album) {
     $songList.append($newRow);
   }
 }
+var currentlyPlayingSong = null;
 
 var createSongRow = function(songNumber, songName, songLength) {
   var template =
      '<tr>'
-   + '  <td class="col-md-1">' + songNumber + '</td>'
+   + '  <td class="song-number col-md-1" data-song-number="' + songNumber + '">' + songNumber + '</td>'
    + '  <td class="col-md-9">' + songName + '</td>'
    + '  <td class="col-md-2">' + songLength + '</td>'
    + '</tr>'
    ;
 
-  return $(template);
- };
+  var $row = $(template);
+
+  var onHover = function(e) {
+    var songNumberCell = $(this).find('.song-number');
+    var songNumber = songNumberCell.data('song-number');
+    if(songNumber !== currentlyPlayingSong) {
+      songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>')
+    }
+  };
+  var offHover = function(e) {
+    var songNumberCell = $(this).find('.song-number');
+    var songNumber = songNumberCell.data('song-number');
+    if(songNumber !== currentlyPlayingSong) {
+      songNumberCell.html(songNumber);
+    }
+  };
+
+  var clickHandler = function(e) {
+    var songNumber = $(this).data('song-number');
+
+    if (currentlyPlayingSong !== null) {
+      // stop playing current song.
+      // replace stopped song button with number.
+      currentlyPlayingCell = $('.song-number[data-song-number="' + currentlyPlayingSong + '"]');
+      currentlyPlayingCell.html(currentlyPlayingSong);
+    }
+
+    if (currentlyPlayingSong !== songNumber) {
+      // a play icon will be showing because of hover.
+      // switch from Play -> Pause to indicate the new song is now playing
+      // set the current song to the one clicked
+      $(this).html('<a class="album-song-buttom"><i class="fa fa-pause"></i></a>');
+      currentlyPlayingSong = songNumber;
+    }
+
+    else if (currentlyPlayingSong === songNumber) {
+      // switch from pause -> play for current song to indicate pausing.
+      // set the current song to null
+      $(this).html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+      currentlyPlayingSong = null;
+    }
+  };
+
+  $row.find('.song-number').click(clickHandler);
+  $row.hover(onHover, offHover);
+  return $row;
+};
+
+
 
 if (document.URL.match(/\/album.html/)) {
   
