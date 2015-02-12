@@ -1809,6 +1809,7 @@ if (typeof JSON !== 'object') {
   var WebSocket = window.WebSocket || window.MozWebSocket;
   var br = window.brunch = (window.brunch || {});
   var ar = br['auto-reload'] = (br['auto-reload'] || {});
+  ar.disabled = true;
   if (!WebSocket || ar.disabled) return;
 
   var cacheBuster = function(url){
