@@ -145,10 +145,31 @@ var setupSeekBars = function() {
   });
 };
 
+var displayMousePosition = function(event) {
+  var mouseX = event.pageX;
+  var mouseY = event.pageY;
+
+  console.log('mouse x is ' + mouseX);
+  console.log('mouse y is ' + mouseY);
+};
+
+var updateMousePosition = function() {
+  $(document).mousedown(function(e) {
+    displayMousePosition(e);
+    $(document).bind('mousemove', function(e) {
+      displayMousePosition(e);
+    });
+  });
+  $(document).mouseup(function(e) {
+    $(document).unbind('mousemove');
+  });
+};
+
 if (document.URL.match(/\/album.html/)) {
   
   $(document).ready(function() {
     changeAlbumView(albumPicasso);
     setupSeekBars();
+    updateMousePosition();
   });
 }
