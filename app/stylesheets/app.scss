@@ -9,6 +9,8 @@ $base-font-size: 16px;
 @import "album";
 @import "collection";
 @import "player_bar";
+@import "buttons";
+@import "profile";
 
 /* define the mixin */
 @mixin radial-gradient($first_color, $second_color) {
