@@ -4,8 +4,12 @@
 // require("./profile");
 
 angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
-  console.log("Landing.controller");
+  function shuffle(o) {
+    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    return o;
+  };
   $scope.subText = "Turn the music up!";
+  $scope.appName = "Bloc Jams"
   $scope.subTextClicked = function() {
     $scope.subText += '!';
   };
@@ -19,5 +23,8 @@ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', funct
     '/images/album-placeholders/album-7.jpg',
     '/images/album-placeholders/album-8.jpg',
     '/images/album-placeholders/album-9.jpg',
-   ];
+  ];
+  $scope.shuffleImages = function() {
+    shuffle($scope.albumURLs);
+  };
 }]);
