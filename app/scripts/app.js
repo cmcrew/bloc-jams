@@ -4,8 +4,14 @@
 // require("./profile");
 
 angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+
   function shuffle(o) {
-    for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+    for (var i = o.length; i > 0; i--) {
+      var j = Math.floor(Math.random() * i);
+      var x = o[i-1];
+      o[i-1] = o[j];
+      o[j] = x;
+    } 
     return o;
   };
   $scope.subText = "Turn the music up!";
