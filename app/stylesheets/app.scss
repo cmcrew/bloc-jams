@@ -39,6 +39,16 @@ body {
   }
 }
 
+.highlighted {
+  background-color: rgba(209, 195, 247, 0.4);
+}
+.first {
+  background-color: blue;
+}
+.last {
+  background-color: magenta;
+}
+
 .player-header-nav {
   background-color: $nav-purple;
   .navbar-nav {
