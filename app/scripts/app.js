@@ -3,8 +3,17 @@
 // require("./album");
 // require("./profile");
 
-angular.module('BlocJams', []).controller('Landing.controller', ['$scope', function($scope) {
+blocJams = angular.module('BlocJams', ['ui.router']);
+blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider){
+  $locationProvider.html5Mode(true);
 
+  $stateProvider.state('landing', {
+    url: '/',
+    controller: 'Landing.controller',
+    templateUrl: '/templates/landing.html'
+  });
+}]);
+blocJams.controller('Landing.controller', ['$scope', function($scope) {
   function shuffle(o) {
     for (var i = o.length; i > 0; i--) {
       var j = Math.floor(Math.random() * i);
@@ -14,6 +23,7 @@ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', funct
     } 
     return o;
   };
+
   $scope.subText = "Turn the music up!";
   $scope.appName = "Bloc Jams"
   $scope.subTextClicked = function() {
@@ -33,4 +43,5 @@ angular.module('BlocJams', []).controller('Landing.controller', ['$scope', funct
   $scope.shuffleImages = function() {
     shuffle($scope.albumURLs);
   };
+
 }]);
