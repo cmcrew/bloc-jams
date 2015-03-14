@@ -4,6 +4,7 @@
 // require("./profile");
 
 blocJams = angular.module('BlocJams', ['ui.router']);
+
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider){
   $locationProvider.html5Mode(true);
 
@@ -12,7 +13,14 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     controller: 'Landing.controller',
     templateUrl: '/templates/landing.html'
   });
+
+  $stateProvider.state('song', {
+    url: '/song',
+    controller: 'Song.controller',
+    templateUrl: '/templates/song.html'
+  });
 }]);
+
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
   function shuffle(o) {
     for (var i = o.length; i > 0; i--) {
@@ -23,7 +31,6 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
     } 
     return o;
   };
-
   $scope.subText = "Turn the music up!";
   $scope.appName = "Bloc Jams"
   $scope.subTextClicked = function() {
@@ -43,5 +50,8 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
   $scope.shuffleImages = function() {
     shuffle($scope.albumURLs);
   };
+}]);
 
+blocJams.controller('Song.controller', ['$scope', function($scope) {
+  console.log("Song Template");
 }]);
