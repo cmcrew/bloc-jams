@@ -21,25 +21,35 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
   $stateProvider.state('landing', {
     url: '/',
     controller: 'Landing.controller',
-    templateUrl: '/templates/landing.html'
+    views: {
+      "viewA": { templateUrl: '/templates/landing.html'}
+    }
   });
 
   $stateProvider.state('collection', {
     url: '/collection',
     controller: 'Collection.controller',
-    templateUrl: '/templates/collection.html'
+    views: {
+      "viewA": { templateUrl: '/templates/collection.html' },
+      "viewB": { templateUrl: '/templates/player_bar.html' }
+    }
   });
 
   $stateProvider.state('album', {
     url: '/album',
     controller: 'Album.controller',
-    templateUrl: '/templates/album.html'
+    views: {
+      "viewA": { templateUrl: '/templates/album.html'},
+      "viewB": { templateUrl: '/templates/player_bar.html' }
+    }
   });
 
   $stateProvider.state('song', {
     url: '/song',
     controller: 'Song.controller',
-    templateUrl: '/templates/song.html'
+    views: {
+      "viewA": { templateUrl: '/templates/song.html' }
+    }
   });
 }]);
 
