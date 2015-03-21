@@ -48,7 +48,12 @@ body {
 .last {
   background-color: magenta;
 }
-
+form {
+  margin-top: 40px;
+  .my-input {
+    color: black;
+  }
+}
 .player-header-nav {
   background-color: $nav-purple;
   .navbar-nav {
