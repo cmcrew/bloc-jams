@@ -43,7 +43,8 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
   });
 }]);
 
-blocJams.controller('Landing.controller', ['$scope', function($scope) {
+blocJams.controller('Landing.controller', ['$scope', 'ConsoleLogger', function($scope, ConsoleLogger) {
+  ConsoleLogger.log();
   function shuffle(o) {
     for (var i = o.length; i > 0; i--) {
       var j = Math.floor(Math.random() * i);
@@ -74,7 +75,8 @@ blocJams.controller('Landing.controller', ['$scope', function($scope) {
   };
 }]);
 
-blocJams.controller('Collection.controller', ['$scope', function($scope) {
+blocJams.controller('Collection.controller', ['$scope', 'ConsoleLogger', function($scope, ConsoleLogger) {
+  ConsoleLogger.log();
   $scope.hideOverlay = true;
   $scope.albums = [];
   for (var i = 0; i < 33; i++) {
@@ -82,7 +84,8 @@ blocJams.controller('Collection.controller', ['$scope', function($scope) {
   }
 }]);
 
-blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
+blocJams.controller('Album.controller', ['$scope', 'SongPlayer', 'ConsoleLogger', function($scope, SongPlayer, ConsoleLogger) {
+  ConsoleLogger.log();
   $scope.album = angular.copy(albumPicasso);
   var hoveredSong = null;
 
@@ -114,11 +117,13 @@ blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope
   };
 }]);
 
-blocJams.controller('Song.controller', ['$scope', function($scope) {
+blocJams.controller('Song.controller', ['$scope', 'ConsoleLogger', function($scope, ConsoleLogger) {
+  ConsoleLogger.log();
   console.log("Song Template");
 }]);
 
-blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
+blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', 'ConsoleLogger', function($scope, SongPlayer, ConsoleLogger) {
+  ConsoleLogger.log();
   $scope.songPlayer = SongPlayer;
 }]);
 
@@ -139,6 +144,17 @@ blocJams.service('SongPlayer', function() {
     setSong: function(album, song) {
       this.currentAlbum = album;
       this.currentSong = song;
+    }
+  };
+});
+
+blocJams.service('ConsoleLogger', function() {
+  return {
+    string: "Hello World!",
+
+
+    log: function() {
+      console.log(this.string);
     }
   };
 });
