@@ -20,35 +20,49 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 
   $stateProvider.state('landing', {
     url: '/',
-    controller: 'Landing.controller',
     views: {
-      "viewA": { templateUrl: '/templates/landing.html'}
+      "viewA": { 
+        templateUrl: '/templates/landing.html',
+        controller: 'Landing.controller'
+      }
     }
   });
 
   $stateProvider.state('collection', {
     url: '/collection',
-    controller: 'Collection.controller',
     views: {
-      "viewA": { templateUrl: '/templates/collection.html' },
-      "viewB": { templateUrl: '/templates/player_bar.html' }
+      "viewA": { 
+        templateUrl: '/templates/collection.html',
+        controller: 'Collection.controller'
+      },
+      "viewB": { 
+        templateUrl: '/templates/player_bar.html',
+        controller: 'Collection.controller'
+      }
     }
   });
 
   $stateProvider.state('album', {
     url: '/album',
-    controller: 'Album.controller',
     views: {
-      "viewA": { templateUrl: '/templates/album.html'},
-      "viewB": { templateUrl: '/templates/player_bar.html' }
+      "viewA": { 
+        templateUrl: '/templates/album.html',
+        controller: 'Album.controller'
+      },
+      "viewB": { 
+        templateUrl: '/templates/player_bar.html',
+        controller: 'Album.controller'
+      }
     }
   });
 
   $stateProvider.state('song', {
     url: '/song',
-    controller: 'Song.controller',
     views: {
-      "viewA": { templateUrl: '/templates/song.html' }
+      "viewA": { 
+        templateUrl: '/templates/song.html',
+        controller: 'Song.controller'
+      }
     }
   });
 }]);
