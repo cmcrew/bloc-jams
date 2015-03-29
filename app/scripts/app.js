@@ -236,3 +236,19 @@ blocJams.directive('clickMe', function() {
   };
 });
 
+blocJams.directive('countHoverTime', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attributes) {
+      var counter = 0;
+
+      $(element).hover(function(e) {
+        window.setTimeout(function(e) {
+          counter++;
+        }, 1000);
+      }, function(e) {
+        console.log(counter);
+      });
+    }
+  };
+});
