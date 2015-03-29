@@ -223,3 +223,16 @@ blocJams.directive('slider', function() {
     }
   };
 });
+
+blocJams.directive('clickMe', function() {
+  return {
+    template: "<div>Click me for a message</div>",
+    restrict: 'E',
+    link: function(scope, element, attributes) {
+      $(element).click(function(e) {
+        alert("You clicked this element!");
+      });
+    }
+  };
+});
+
