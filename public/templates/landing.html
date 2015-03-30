@@ -29,3 +29,8 @@
     </div>
   </div>
 </div>
+
+<form name="testForm" class="container">
+  <label for="stringInput" class="col-md-2">Enter a String</label>
+  <input type="text" ng-blur="consoleLogger.log($event.target.value)" name="stringInput" class="my-input col-md-4" />
+</form>

@@ -45,6 +45,7 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 
 blocJams.controller('Landing.controller', ['$scope', 'ConsoleLogger', function($scope, ConsoleLogger) {
   ConsoleLogger.log();
+  
   function shuffle(o) {
     for (var i = o.length; i > 0; i--) {
       var j = Math.floor(Math.random() * i);
@@ -55,7 +56,7 @@ blocJams.controller('Landing.controller', ['$scope', 'ConsoleLogger', function($
     return o;
   };
   $scope.subText = "Turn the music up!";
-  $scope.appName = "Bloc Jams"
+  $scope.appName = "Bloc Jams";
   $scope.subTextClicked = function() {
     $scope.subText += '!';
   };
@@ -152,11 +153,8 @@ blocJams.service('SongPlayer', function() {
 
 blocJams.service('ConsoleLogger', function() {
   return {
-    string: "",
-
-    log: function() {
-      // this.string = inputString;
-      console.log(this.string);
+    log: function(string) {
+      console.log(string);
     }
   };
 });
