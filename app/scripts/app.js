@@ -242,12 +242,16 @@ blocJams.directive('countHoverTime', function() {
     link: function(scope, element, attributes) {
       var counter = 0;
 
-      $(element).hover(function(e) {
-        window.setTimeout(function(e) {
+      $(element).hover(function() {
+        setInterval(function() {
           counter++;
+          console.log(counter);
         }, 1000);
-      }, function(e) {
-        console.log(counter);
+      }, function() {
+        // console.log('done hovering');
+        // console.log(counter);
+        clearInterval();
+        // counter = 0;
       });
     }
   };
