@@ -240,18 +240,21 @@ blocJams.directive('countHoverTime', function() {
   return {
     restrict: 'A',
     link: function(scope, element, attributes) {
-      var counter = 0;
 
+      var counter = 0;
+      var intervalId;
       $(element).hover(function() {
-        setInterval(function() {
+        if(intervalId) {
+          clearInterval(intervalId);
+        }
+        intervalId = setInterval(function() {
           counter++;
-          console.log(counter);
         }, 1000);
       }, function() {
-        // console.log('done hovering');
-        // console.log(counter);
-        clearInterval();
-        // counter = 0;
+        console.log("hovered for " + counter + " seconds.");
+        counter = 0;
+        clearInterval(intervalId);
+        intervalId = null;
       });
     }
   };
