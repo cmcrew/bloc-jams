@@ -243,14 +243,14 @@ blocJams.directive('countHoverTime', function() {
 
       var counter = 0;
       var intervalId;
-      $(element).hover(function() {
-        intervalId = setInterval(function() {
-          counter++;
-        }, 1000);
-      }, function() {
+      var count = function() {
+        counter++;
+        intervalId = setTimeout(count, 1000);
+      };
+      $(element).hover(count, function() {
         console.log("hovered for " + counter + " seconds.");
         counter = 0;
-        clearInterval(intervalId);
+        clearTimeout(intervalId);
         intervalId = null;
       });
     }
