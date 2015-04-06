@@ -244,9 +244,6 @@ blocJams.directive('countHoverTime', function() {
       var counter = 0;
       var intervalId;
       $(element).hover(function() {
-        if(intervalId) {
-          clearInterval(intervalId);
-        }
         intervalId = setInterval(function() {
           counter++;
         }, 1000);
