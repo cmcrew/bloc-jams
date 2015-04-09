@@ -125,7 +125,8 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', '$filter', 
 
   SongPlayer.onTimeUpdate(function(event, time) {
     $scope.$apply(function() {
-      $scope.playTime = $filter('timecode')(time);
+      $scope.playTime = time;
+      $scope.playTimeFiltered = $filter('timecode')(time);
     });
   });
 
