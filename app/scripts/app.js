@@ -120,12 +120,12 @@ blocJams.controller('Song.controller', ['$scope', function($scope) {
   console.log("Song Template");
 }]);
 
-blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', 'timecode', function($scope, SongPlayer, timecode) {
+blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', '$filter', function($scope, SongPlayer, $filter) {
   $scope.songPlayer = SongPlayer;
 
   SongPlayer.onTimeUpdate(function(event, time) {
     $scope.$apply(function() {
-      $scope.playTime = timecode(time);
+      $scope.playTime = $filter('timecode')(time);
     });
   });
 
