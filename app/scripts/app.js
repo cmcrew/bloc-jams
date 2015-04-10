@@ -199,6 +199,19 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       this.volume = volume;
     },
 
+    toggleMute: function(volume) {
+      if(currentSoundFile) {
+        currentSoundFile.toggleMute(volume);
+      }
+      if(volume > 0) {
+        savedVolume = volume;
+        this.volume = 0;
+      }
+      else {
+        this.volume = savedVolume;
+      }
+    },
+
     setSong: function(album, song) {
       if (currentSoundFile) {
         currentSoundFile.stop();
